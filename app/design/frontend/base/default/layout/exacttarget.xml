@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <exacttarget_tracking>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/default" name="exacttarget.default.track"
+                   template="exacttarget/tracking.phtml"/>
+        </reference>
+    </exacttarget_tracking>
+    <catalog_category_view>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/category" name="exacttarget.category.track"
+                   template="exacttarget/tracking.phtml"/>
+        </reference>
+    </catalog_category_view>
+    <catalog_product_view>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/product" name="exacttarget.product.track"
+                   template="exacttarget/tracking.phtml"/>
+        </reference>
+
+    </catalog_product_view>
+    <catalogsearch_result_index>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/search" name="exacttarget.search.track"
+                   template="exacttarget/tracking.phtml"/>
+        </reference>
+    </catalogsearch_result_index>
+    <checkout_cart_index>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/cart" name="exacttarget.cart.track"
+                   template="exacttarget/cart.phtml"/>
+        </reference>
+    </checkout_cart_index>
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="proxiblue_exacttarget/success" name="exacttarget.success.track"
+                   template="exacttarget/success.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+</layout>

@@ -1,0 +1,26 @@
+<?php
+$_helper = Mage::helper('proxiblue_exacttarget');
+?>
+<?php if (!$this->hasAlreadyTracked() && $_helper->isEnabled() && $this->isEnabled()): ?>
+    <!-- EXACTTARGET TRACKING SCRIPT - MODULE BY PROXIBLUE.COM.AU -->
+    <script type="text/javascript" src="<?php echo $_helper->getConnectUrl(); ?>"></script>
+    <script type="text/javascript">
+        document.observe("dom:loaded", function () {
+            if (typeof(_etmc) !== "undefined") {
+                _etmc.push(["setOrgId", "<?php echo $_helper->getAccountId(); ?>"]);
+                <?php if($this->addUserData() && $this->isUserLoggedIn()): ?>
+                _etmc.push(["setUserInfo", {
+                    "email": "<?php echo $this->getCustomerEmail(); ?>",
+                    "details": {
+                        "first_name": "<?php echo $this->getCustomerName(); ?>",
+                        "last_name": "<?php echo $this->getCustomerLastName(); ?>"
+                    }
+                }]);
+                <?php endif;?>
+                _etmc.push(["<?php echo $this->getTrackType(); ?>"<?php if ($_trackData = $this->getTrackData()):?>, <?php echo $_trackData; ?><?php endif; ?>]);
+            }
+        });
+    </script>
+    <!-- END EXACTTARGET TRACKING -->
+    <?php $this->flagHasTracked(); ?>
+<?php endif; ?>
