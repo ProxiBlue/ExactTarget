@@ -42,7 +42,7 @@ class ProxiBlue_ExactTarget_Model_Observer
             $request = $observer->getFront()->getAction()->getRequest();
             $params = $request->getParams();
             #ref: https://help.exacttarget.com/en/documentation/exacttarget/content/conversion_tracking/
-            if (0 === count(array_diff(['mid', 'j', 'e', 'l', 'u', 'jb'], array_keys($params)))) {
+            if (0 === count(array_diff(['mid', 'j', 'sfmc_sub', 'l', 'u', 'jb'], array_keys($params)))) {
                 Mage::getSingleton('checkout/session')->setExactTargetConversionTracking($params);
             }
         }
